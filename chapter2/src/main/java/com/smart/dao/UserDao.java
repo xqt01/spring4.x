@@ -20,7 +20,6 @@ public class UserDao {
 			" last_visit=?,last_ip=?,credits=?  WHERE user_id =?";
 
 	public int getMatchCount(String userName, String password) {
-
 		return jdbcTemplate.queryForObject(MATCH_COUNT_SQL, new Object[]{userName, password}, Integer.class);
 	}
 
