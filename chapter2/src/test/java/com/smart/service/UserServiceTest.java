@@ -11,6 +11,9 @@ import static org.testng.Assert.*;
 @ContextConfiguration("classpath*:/smart-context.xml")
 public class UserServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
+	/**
+	 * 注入Spring中的Bean
+	 */
 	@Autowired
     private UserService userService;
 
@@ -24,13 +27,11 @@ public class UserServiceTest extends AbstractTransactionalTestNGSpringContextTes
 
 	@Test
      public void testFindUserByUserName()throws Exception{
-        for(int i =0; i< 100;i++) {
+        for(int i = 0; i< 100; i++) {
             User user = userService.findUserByUserName("admin");
             assertEquals(user.getUserName(), "admin");
         }
-
     }
-
 
 	@Test
 	public void testAddLoginLog() {
