@@ -4,16 +4,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 1.从类路径下加载Spring配置文件, classpath关键字特指类路径下加载 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:smart-context.xml</param-value>
 	</context-param>
+
+	<!-- 2.负责启动Spring容器的监听器, 引用1的上下文参数获得Spring配置文件的地址. 监听器在Web容器启动时自动运行 -->
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
 
+	<!-- SpringMVC的主控Servlet. 配置文件为smart-servlet.xml, SpringMVC会自动地将其与其他配置文件拼接 -->
 	<servlet>
 		<servlet-name>smart</servlet-name>
 		<servlet-class>
@@ -22,6 +26,7 @@
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 
+	<!-- SpringMVC处理的URL, 后缀无所谓, html对seo有好处. 不希望被收录的真正静态网页写htm后缀即可 -->
 	<servlet-mapping>
 		<servlet-name>smart</servlet-name>
 		<url-pattern>*.html</url-pattern>
