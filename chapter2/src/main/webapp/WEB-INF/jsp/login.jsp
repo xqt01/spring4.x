@@ -8,7 +8,8 @@
 	<body>
 		<c:if test="${!empty error}">
 	        <font color="red"><c:out value="${error}" /></font>
-		</c:if>        
+		</c:if>
+		<!-- c:url在URL前自动加上应用部署根目录 -->
 		<form action="<c:url value="loginCheck.html"/>" method="post">
 			用户名：
 			<input type="text" name="userName">

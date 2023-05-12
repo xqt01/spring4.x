@@ -22,9 +22,13 @@ public class LoginController{
 	public String loginPage(){
 		return "login";
 	}
-	
+
+	/**
+	 * @RequestMapping 指定方法如何映射请求路径, 请求参数被自动填入loginCommand
+	 * @return ModelAndView 包括视图渲染所需的模型数据信息
+	 */
 	@RequestMapping(value = "/loginCheck.html")
-	public ModelAndView loginCheck(HttpServletRequest request,LoginCommand loginCommand){
+	public ModelAndView loginCheck(HttpServletRequest request, LoginCommand loginCommand){
 		boolean isValidUser =  userService.hasMatchUser(loginCommand.getUserName(),
 					                    loginCommand.getPassword());
 		if (!isValidUser) {
