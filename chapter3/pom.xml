@@ -12,6 +12,7 @@
     <name>Spring4.x第三章实例</name>
     <packaging>war</packaging>
     <dependencies>
+        <!-- 添加SpringBoot Web启动器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
