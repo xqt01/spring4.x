@@ -43,8 +43,9 @@ public class UserDao {
                 user.getLastIp(), user.getCredits(), user.getUserId()});
     }
 
-
-
+    /**
+     * 注入即可,无需装配
+     */
     @Autowired
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
