@@ -51,7 +51,6 @@ public class Car implements BeanFactoryAware, BeanNameAware, InitializingBean, D
 	public void introduce(){
 		System.out.println("introduce:"+this.toString());
 	}
-	
 
 	// BeanFactoryAware接口方法
 	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
