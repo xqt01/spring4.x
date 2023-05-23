@@ -4,6 +4,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.util.FileCopyUtils;
 
+/**
+ * 可自定义解码方式
+ */
 public class EncodedResourceExample {
 
 	  public static void main(String[] args) throws Throwable  {
@@ -12,5 +15,4 @@ public class EncodedResourceExample {
 		  String content  = FileCopyUtils.copyToString(encRes.getReader());
 		  System.out.println(content);  
 	}
-
 }
