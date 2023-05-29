@@ -16,7 +16,6 @@ public class MyBeanPostProcessor implements BeanPostProcessor{
 			}
 		}
 		return bean;
-
 	}
 
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {		

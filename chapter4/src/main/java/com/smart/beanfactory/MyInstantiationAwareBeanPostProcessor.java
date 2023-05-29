@@ -6,7 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 
-public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter{
+public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter {
 
 	@Override
 	public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {

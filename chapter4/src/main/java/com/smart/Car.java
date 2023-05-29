@@ -80,8 +80,7 @@ public class Car implements BeanFactoryAware, BeanNameAware, InitializingBean, D
 		this.maxSpeed = 240;
 	}
 
-	public void myDestory() {
+	public void myDestroy() {
 		System.out.println("调用myDestroy()。");
 	}
-	
 }
