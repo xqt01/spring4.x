@@ -14,6 +14,6 @@ public class GroovyApplicationContextTest {
     public static void main(String[] args) {
         ApplicationContext ctx = new GenericGroovyApplicationContext("classpath:com/smart/context/groovy-beans.groovy");
         Car car = (Car) ctx.getBean("car");
-        System.out.println(car.getColor());
+        car.introduce();
     }
 }
