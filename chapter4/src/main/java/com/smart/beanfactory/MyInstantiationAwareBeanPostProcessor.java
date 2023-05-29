@@ -8,33 +8,36 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 
 public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessorAdapter{
 
+	@Override
 	public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {
-		if("car".equals(beanName)){
+		if ("car".equals(beanName)) {
 			System.out.println("MyInstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation");			
 		}		
 		return null;
 	}
 
+	@Override
 	public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
 		if("car".equals(beanName)){
-		System.out.println("InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation");
+			System.out.println("InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation");
 		}
 		return true;
 	}
 
-	public PropertyValues postProcessPropertyValues(
-			PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName)
-			throws BeansException {
-		if("car".equals(beanName)){
+	@Override
+	public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
+		if ("car".equals(beanName)) {
 		   System.out.println("InstantiationAwareBeanPostProcessor.postProcessPropertyValues");
 		}
 		return pvs;
 	}
 
+	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 		return bean;
 	}
 
+	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		return bean;
 	}

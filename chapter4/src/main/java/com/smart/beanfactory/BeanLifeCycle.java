@@ -11,7 +11,6 @@ import org.springframework.core.io.Resource;
 public class BeanLifeCycle {
     private static void LifeCycleInBeanFactory(){
 
-
        //①下面两句装载配置文件并启动容器
  	   Resource res = new ClassPathResource("com/smart/beanfactory/beans.xml");
 
@@ -39,6 +38,7 @@ public class BeanLifeCycle {
        ((DefaultListableBeanFactory)bf).destroySingletons();
 
     }
+
 	public static void main(String[] args) {
 		LifeCycleInBeanFactory();
 	}

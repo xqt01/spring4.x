@@ -2,9 +2,7 @@ package com.smart.reflect;
 
 public class Car {
 	private String brand;
-
 	private String color;
-
 	private int maxSpeed;
 
 	public Car(){System.out.println("init car!!");}
