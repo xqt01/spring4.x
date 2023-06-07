@@ -8,6 +8,7 @@
 		<property name="maxSpeed" value="100" />
 		<property name="price" value="1000.00" />
 	</bean>
+	<!-- 引用父容器的car -->
 	<bean id="boss" class="com.smart.attr.Boss">
 		<property name="car">
 			<ref parent="car" />
