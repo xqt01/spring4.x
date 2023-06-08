@@ -18,16 +18,19 @@
 		<property name="color" value="白色"/>
 	</bean>		
 	
-	<!-- <bean>的信赖 -->
+	<!-- <bean>的依赖 -->
 	<bean id="cacheManager" class="com.smart.tagdepend.CacheManager" depends-on="sysInit" />
 	<bean id="sysInit" class="com.smart.tagdepend.SysInit" />
 
    <!-- <bean>引用 -->
     <bean id="car" class="com.smart.tagdepend.Car"/>
     <bean id="boss" class="com.smart.tagdepend.Boss" >
-       <property name="carId"  >
-           <value>car</value>
-       </property>
+<!--       <property name="carId">-->
+<!--           <value>car</value>-->
+<!--       </property>-->
+		<property name="carId" >
+			<idref bean="car"/>
+		</property>
     </bean>
 
 </beans>

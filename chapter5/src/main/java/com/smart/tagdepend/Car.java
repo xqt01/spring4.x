@@ -30,8 +30,8 @@ public class Car {
 		this.color = color;
 	}
 
+	@Override
 	public String toString() {
 		return "brand:" + brand + "/price:" + price + "/color:" + color;
 	}
-
 }

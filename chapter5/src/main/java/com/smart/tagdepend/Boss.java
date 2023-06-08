@@ -1,6 +1,7 @@
 package com.smart.tagdepend;
 
 public class Boss {
+
 	private String carId;
 
 	public String getCarId() {
