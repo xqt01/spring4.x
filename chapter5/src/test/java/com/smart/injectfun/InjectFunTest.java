@@ -20,12 +20,13 @@ public class InjectFunTest {
 	@Test
 	public void testLookup(){
 		MagicBoss mboss = (MagicBoss) factory.getBean("magicBoss");
-		assertNotSame(mboss.getCar(),mboss.getCar());
+		assertNotSame(mboss.getCar(), mboss.getCar());
 	}
 
 	@Test
 	public void testReplace(){
 		MagicBoss mboss = (MagicBoss) factory.getBean("boss1");
+		// 方法被boss2替换
 		assertEquals(mboss.getCar().getBrand(),"美人豹");
 	}
 	
