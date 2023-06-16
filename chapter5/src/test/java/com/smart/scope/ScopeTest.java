@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.*;
-import static org.testng.Assert.*;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertNotSame;
 
 @ContextConfiguration("classpath*:/com/smart/scope/beans.xml")
 public class ScopeTest extends AbstractTestNGSpringContextTests {
-
 
 	@Autowired
 	@Qualifier("boss1")

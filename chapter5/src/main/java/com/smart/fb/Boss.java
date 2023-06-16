@@ -1,4 +1,5 @@
 package com.smart.fb;
+
 public class Boss {
 	private String name;
 	private Car car;
