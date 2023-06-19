@@ -1,9 +1,7 @@
 package com.smart.dynamic;
 
 public class UserService {
-  private UserDao  userDao;
-
-
+    private UserDao userDao;
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }

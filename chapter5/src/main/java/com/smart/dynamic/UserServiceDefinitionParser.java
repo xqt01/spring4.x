@@ -11,10 +11,11 @@ import org.w3c.dom.Element;
 
 public class UserServiceDefinitionParser implements BeanDefinitionParser {
 
+    @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(UserService.class);
         String dao = element.getAttribute("dao");
-        beanDefinitionBuilder.addPropertyReference("userDao",dao);
+        beanDefinitionBuilder.addPropertyReference("userDao", dao);
         AbstractBeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
         //注册BEAN定义
         parserContext.registerBeanComponent(new BeanComponentDefinition( beanDefinition,"userService"));

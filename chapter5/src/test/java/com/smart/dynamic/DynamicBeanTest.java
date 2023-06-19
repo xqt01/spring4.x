@@ -15,7 +15,6 @@ public class DynamicBeanTest {
 	@BeforeClass
 	public void setUp() throws Exception {
 		applicationContext = new ClassPathXmlApplicationContext(CONFIG_FILES);
-		
 	}
 
 	@Test
@@ -25,7 +24,7 @@ public class DynamicBeanTest {
 			Object userService2 = applicationContext.getBean("userService2");
 			assertNotNull(userService1);
 			assertNotNull(userService2);
-		}catch (NoSuchBeanDefinitionException exception){
+		} catch (NoSuchBeanDefinitionException exception){
 			exception.printStackTrace();
 		}
 
@@ -36,5 +35,4 @@ public class DynamicBeanTest {
 		assertNotNull(userService1);
 		assertNotNull(userService2);
 	}
-
 }
