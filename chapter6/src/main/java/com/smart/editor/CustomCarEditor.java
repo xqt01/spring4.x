@@ -4,8 +4,9 @@ import java.beans.PropertyEditorSupport;
 
 public class CustomCarEditor extends PropertyEditorSupport {
 
+	@Override
 	public void setAsText(String text){
-		if(text == null || text.indexOf(",") == -1){
+		if (text == null || !text.contains(",")) {
 			throw new IllegalArgumentException("设置的字符串格式不正确");
 		}
 		String[] infos = text.split(",");
@@ -16,13 +17,14 @@ public class CustomCarEditor extends PropertyEditorSupport {
 		setValue(car);
 	}
 
+	@Override
 	public String getAsText() {
 		Object value = getValue();
-		if(value == null){
+		if (value == null) {
 		   return "";
-		}else{
-		   Car car = (Car)value;
-		   return car.getBrand()+","+car.getMaxSpeed()+","+car.getPrice();
+		} else {
+		   Car car = (Car) value;
+		   return car.getBrand() + "," + car.getMaxSpeed() + "," + car.getPrice();
 		}
 	}
 }

@@ -7,8 +7,8 @@
     <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
-                <entry key="com.smart.editor.Car"
-                       value="com.smart.editor.CustomCarEditor"/>
+                <!--2 属性编辑器对应的属性类型-->
+                <entry key="com.smart.editor.Car" value="com.smart.editor.CustomCarEditor"/>
             </map>
         </property>
     </bean>
@@ -16,6 +16,7 @@
     <bean id="boss" class="com.smart.editor.Boss">
         <property name="name" value="John"/>
         <property name="car" value="红旗CA72,200,20000.00"/>
+        <property name="customCar" value="蔚来,100,2000,10.0"/>
     </bean>
 
 </beans>
