@@ -70,8 +70,5 @@ public class DESUtils {
 				System.out.println(arg + ":" + getEncryptString(arg));
 			}
 		}
-		
-		//System.out.println(getDecryptString("WnplV/ietfQ="));
-		//System.out.println(getDecryptString("gJQ9O+q34qk="));
 	}
 }
