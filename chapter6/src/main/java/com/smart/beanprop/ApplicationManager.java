@@ -25,6 +25,7 @@ public class ApplicationManager {
 		this.maxTabPageNum = maxTabPageNum;
 	}
 	
+	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}

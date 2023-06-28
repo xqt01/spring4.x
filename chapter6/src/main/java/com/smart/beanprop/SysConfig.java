@@ -10,8 +10,8 @@ public class SysConfig {
 	private DataSource dataSource;
 
 	public void initFromDB(){
-		//从数据库中获取属性配置值
-		this.sessionTimeout = 30; 
+		// 模拟从数据库中获取属性配置值
+		this.sessionTimeout = 30;
 		this.maxTabPageNum = 10;
 	}
 
