@@ -24,6 +24,7 @@ public class I18nGreeting {
 		System.out.println(str3);
 		
 	}
+
 	private static void rrsrBdlMessageResource() throws Exception{
 		String[] configs = {"com/smart/i18n/beans.xml"};
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(configs);
@@ -34,7 +35,7 @@ public class I18nGreeting {
 		for (int i = 0; i < 2; i++) {
 			String str1 = ms.getMessage("greeting.common",params,Locale.US);		
 			System.out.println(str1);
-			Thread.currentThread().sleep(20000);
+			Thread.sleep(1000);
 		}	
 	}
 	
@@ -50,8 +51,8 @@ public class I18nGreeting {
 	}	
 	
 	public static void main(String[] args) throws Exception{
-//		rsrBdlMessageResource();
-//		rrsrBdlMessageResource();
+		rsrBdlMessageResource();
+		rrsrBdlMessageResource();
 		ctxMessageResource();
 	}
 }
