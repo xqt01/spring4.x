@@ -4,14 +4,14 @@ public class ForumServiceImpl implements ForumService {
 
 	@Override
 	public void removeTopic(int topicId) {
-		PerformanceMonitor.begin("com.smart.proxy.ForumServiceImpl.removeTopic");
+//		PerformanceMonitor.begin("com.smart.proxy.ForumServiceImpl.removeTopic");
 		System.out.println("模拟删除Topic记录:"+topicId);
 		try {
 			Thread.sleep(20);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}		
-		PerformanceMonitor.end();
+//		PerformanceMonitor.end();
 	}
 
 	@Override
