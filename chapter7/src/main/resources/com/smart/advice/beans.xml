@@ -11,7 +11,7 @@
 	<bean id="target" class="com.smart.advice.NaiveWaiter" />
 
 
-	<!--1. greetingAdvice -->
+	<!--1. greetingAdvice,  proxyInterfaces可以是多个接口, interceptorNames织入目标对象的Bean列表-->
 	<!--
 		bean id="waiter"
 		class="org.springframework.aop.framework.ProxyFactoryBean"
@@ -31,7 +31,6 @@
 	<bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
 		p:proxyInterfaces="com.smart.advice.Waiter" p:target-ref="target"
 		p:interceptorNames="greetingAround" />
-
 
 	<!--4. 异常抛出增强  -->
 	<bean id="forumServiceTarget" class="com.smart.advice.ForumService" />
