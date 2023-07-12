@@ -11,14 +11,13 @@
 	<bean id="target" class="com.smart.advice.NaiveWaiter" />
 
 
-	<!--1. greetingAdvice,  proxyInterfaces可以是多个接口, interceptorNames织入目标对象的Bean列表-->
+	<!--1. greetingAdvice,  proxyInterfaces可以是多个接口, interceptorNames织入目标对象的Bean列表(Bean名称)-->
 	<!--
 		bean id="waiter"
 		class="org.springframework.aop.framework.ProxyFactoryBean"
 		p:proxyInterfaces="com.smart.advice.Waiter" p:target-ref="target"
 		p:interceptorNames="greetingAdvice"/
 	-->
-
 
 	<!--2. before and after advice -->
 	<!--
@@ -27,6 +26,7 @@
 		p:proxyInterfaces="com.smart.advice.Waiter" p:target-ref="target"
 		p:interceptorNames="greetingBefore,greetingAfter"/
 	-->
+
     <!--3. around advice -->
 	<bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean"
 		p:proxyInterfaces="com.smart.advice.Waiter" p:target-ref="target"
