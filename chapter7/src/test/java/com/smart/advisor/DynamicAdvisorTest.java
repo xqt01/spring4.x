@@ -2,8 +2,8 @@ package com.smart.advisor;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import static org.testng.Assert.*;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
+
 public class DynamicAdvisorTest {
 
 	@Test
