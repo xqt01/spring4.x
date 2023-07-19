@@ -46,6 +46,7 @@
 
 	<!-- 控制流程切面 -->
 	<bean id="controlFlowPointcut" class="org.springframework.aop.support.ControlFlowPointcut">
+		<!-- 指定流程切点类和方法 -->
 		<constructor-arg type="java.lang.Class" value="com.smart.advisor.WaiterDelegate" />
 		<constructor-arg type="java.lang.String" value="service" />
 	</bean>
@@ -64,8 +65,7 @@
 		p:proxyTargetClass="true" />
 
 	<!--引入切面-->
-	<bean id="introduceAdvisor"
-		class="org.springframework.aop.support.DefaultIntroductionAdvisor">
+	<bean id="introduceAdvisor" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
 		<constructor-arg>
 			<bean class="com.smart.introduce.ControllablePerformaceMonitor" />
 		</constructor-arg>

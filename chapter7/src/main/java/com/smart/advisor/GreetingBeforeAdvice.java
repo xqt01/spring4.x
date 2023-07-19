@@ -10,6 +10,6 @@ public class GreetingBeforeAdvice implements MethodBeforeAdvice {
 		String clientName = (String)args[0];
 		// 输出切点
 		System.out.println(obj.getClass().getName() + "." + method.getName());
-		System.out.println("StaticMethod/Regexp-How are you！Mr." + clientName + ".");
+		System.out.println("How are you！Mr." + clientName + ".");
 	}
 }

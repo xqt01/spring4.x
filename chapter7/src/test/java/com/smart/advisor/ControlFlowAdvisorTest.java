@@ -2,8 +2,11 @@ package com.smart.advisor;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import static org.testng.Assert.*;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
+
+/**
+ * 对所有WaiterDelegate#service()方法发起调用的其他方法都织入GreetingBeforeAdvice
+ */
 public class ControlFlowAdvisorTest {
 
 	@Test
