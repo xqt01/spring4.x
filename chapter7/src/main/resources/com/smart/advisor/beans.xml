@@ -64,10 +64,10 @@
 		p:interceptorNames="composableAdvisor" p:target-ref="waiterTarget"
 		p:proxyTargetClass="true" />
 
-	<!--引入切面-->
+	<!--引介切面-->
 	<bean id="introduceAdvisor" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
 		<constructor-arg>
-			<bean class="com.smart.introduce.ControllablePerformaceMonitor" />
+			<bean class="com.smart.introduce.ControllablePerformanceMonitor" />
 		</constructor-arg>
 	</bean>
 	<bean id="forumServiceTarget" class="com.smart.introduce.ForumService" />
