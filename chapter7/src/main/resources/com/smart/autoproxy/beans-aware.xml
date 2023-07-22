@@ -11,6 +11,5 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.spri
 	<bean id="regexpAdvisor"
 		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
 		p:patterns=".*To.*" p:advice-ref="greetingAdvice"  />
-	<bean
-		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"  p:proxyTargetClass="true" />
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" p:proxyTargetClass="true" />
 </beans>

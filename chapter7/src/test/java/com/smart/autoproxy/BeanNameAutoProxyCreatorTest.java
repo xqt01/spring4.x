@@ -1,12 +1,11 @@
 package com.smart.autoproxy;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.smart.advisor.Seller;
 import com.smart.advisor.Waiter;
-import static org.testng.Assert.*;
-import org.testng.annotations.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.testng.annotations.Test;
+
 public class BeanNameAutoProxyCreatorTest {
 
 	@Test
@@ -17,6 +16,6 @@ public class BeanNameAutoProxyCreatorTest {
 		Seller seller = (Seller) ctx.getBean("seller");
 		waiter.serveTo("John");
 		waiter.greetTo("John");
-		//seller.greetTo("Tom");
+		seller.greetTo("Tom");
 	}
 }

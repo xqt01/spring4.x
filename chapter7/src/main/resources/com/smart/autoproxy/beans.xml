@@ -8,19 +8,15 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.spri
 	<bean id="waiter" class="com.smart.advisor.Waiter" />
 	<bean id="seller" class="com.smart.advisor.Seller" />
 	<bean id="greetingAdvice" class="com.smart.advisor.GreetingBeforeAdvice" />
-	<!-- 通过Bean名称自动创建代理 -->
-	<!--
-		<bean
-		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"
-		p:beanNames="*er" p:interceptorNames="greetingAdvice"
-		p:optimize="true"/>
-	-->
-
+	<!-- 通过Bean名称自动创建代理,跑不通 -->
+<!--	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"-->
+<!--		p:patterns="*er"-->
+<!--		p:interceptorNames="greetingAdvice"-->
+<!--		p:optimize="true"/>-->
 
 	<!--通过Advisor自动创建代理-->
-	<bean id="regexpAdvisor"
-		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
-		p:patterns=".*greet.*" p:advice-ref="greetingAdvice"  />
-	<bean
-		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"  p:proxyTargetClass="true" />
+	<bean id="regexpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor"
+		  p:patterns=".*greet.*"
+		  p:advice-ref="greetingAdvice"  />
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" p:proxyTargetClass="true" />
 </beans>
