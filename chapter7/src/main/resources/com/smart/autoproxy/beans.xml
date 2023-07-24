@@ -10,7 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.spri
 	<bean id="greetingAdvice" class="com.smart.advisor.GreetingBeforeAdvice" />
 	<!-- 通过Bean名称自动创建代理,跑不通 -->
 <!--	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"-->
-<!--		p:patterns="*er"-->
+<!--		p:beanNames="*er"-->
 <!--		p:interceptorNames="greetingAdvice"-->
 <!--		p:optimize="true"/>-->
 
