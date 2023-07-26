@@ -9,9 +9,9 @@ public class ForumServiceTest {
     @Test
     public void proxy() {
         // 业务类正常编码的测试
-//        ForumService forumService = new ForumServiceImpl();
-//        forumService.removeForum(10);
-//        forumService.removeTopic(1012);
+        ForumService forumService = new ForumServiceImpl();
+        forumService.removeForum(10);
+        forumService.removeTopic(1012);
 
         // 使用JDK动态代理
 //		ForumService target = new ForumServiceImpl();
@@ -22,9 +22,9 @@ public class ForumServiceTest {
 //		proxy.removeTopic(1012);
 
         // 使用CGLib动态代理
-		CglibProxy cglibProxy = new CglibProxy();
-		ForumService forumService = (ForumService)cglibProxy.getProxy(ForumServiceImpl.class);
-		forumService.removeForum(10);
-		forumService.removeTopic(1023);
+//		CglibProxy cglibProxy = new CglibProxy();
+//		ForumService forumService = (ForumService)cglibProxy.getProxy(ForumServiceImpl.class);
+//		forumService.removeForum(10);
+//		forumService.removeTopic(1023);
     }
 }

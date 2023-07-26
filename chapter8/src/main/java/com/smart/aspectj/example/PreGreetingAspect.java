@@ -2,10 +2,13 @@ package com.smart.aspectj.example;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-@Aspect
-public class PreGreetingAspect{
-	@Before("execution(* greetTo(..))")
-	public void beforeGreeting(){
-		System.out.println("How are you");
-	}
+
+@Aspect //将PreGreetingAspect标识为一个切面
+public class PreGreetingAspect {
+
+    @Before("execution(* greetTo(..))") // 定义切点和增强类型
+    public void beforeGreeting() {
+    	// 增强的横切逻辑
+        System.out.println("How are you");
+    }
 }

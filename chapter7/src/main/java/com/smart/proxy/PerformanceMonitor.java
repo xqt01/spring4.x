@@ -1,11 +1,14 @@
 package com.smart.proxy;
 
+/**
+ * 性能监视的实现类
+ */
 public class PerformanceMonitor {
 
 	/**
 	 * 保存与调用线程相关的性能监视信息
 	 */
-	private static ThreadLocal<MethodPerformance> performanceRecord = new ThreadLocal<MethodPerformance>();
+	private static final ThreadLocal<MethodPerformance> performanceRecord = new ThreadLocal<MethodPerformance>();
 
 	public static void begin(String method) {
 		System.out.println("begin monitor...");
