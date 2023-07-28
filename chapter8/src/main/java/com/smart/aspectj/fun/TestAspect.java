@@ -4,14 +4,23 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.core.Ordered;
+
 /**
  * 说明：需要测试某个切点函数时，取消相应的注解就可以了。
  * @author 陈雄华
- *
  */
 @Aspect
-public class TestAspect implements Ordered{
-//    @Before("execution(public * *(..))")
+public class TestAspect implements Ordered {
+
+    /**
+     * @annotation 用全限定名指明注解
+     */
+    @AfterReturning("@annotation(com.smart.anno.NeedTest)")
+    public void needTestFun(){
+        System.out.println("needTestFun() executed!");
+    }
+
+    //    @Before("execution(public * *(..))")
 //	public void allPublicFun(){
 //	    System.out.println("allPublicFun() executed!");	
 //	}
@@ -28,11 +37,12 @@ public class TestAspect implements Ordered{
 //    	System.out.println("allChildClassFun() executed!");
 //    }
 //	@Before("execution(* joke(Object,int)))")
-	@Before("args(Object,*)")
-    public void jokeFun(){
-    	System.out.println("jokeFun() executed!");
-    }
-//    @AfterReturning("@annotation(com.smart.anno.NeedTest)")
+//    @Before("args(Object,*)")
+//    public void jokeFun() {
+//        System.out.println("jokeFun() executed!");
+//    }
+
+    //    @AfterReturning("@annotation(com.smart.anno.NeedTest)")
 //    public void atAnnotaionTest(){
 //    	System.out.println("atAnnotaionTest() executed!");
 //    }
@@ -52,12 +62,12 @@ public class TestAspect implements Ordered{
 //	public void atWithinTest() {
 //		System.out.println("atWithinTest() executed!");
 //	} 
-	@AfterReturning("this(com.smart.Seller)")
-	public void thisTest(){
-		System.out.println("thisTest() executed!");
-	}
-	public int getOrder() {
-		// TODO Auto-generated method stub
-		return 1;
-	}
+//    @AfterReturning("this(com.smart.Seller)")
+//    public void thisTest() {
+//        System.out.println("thisTest() executed!");
+//    }
+//
+    public int getOrder() {
+        return 1;
+    }
 }
