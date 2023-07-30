@@ -1,5 +1,6 @@
 package com.smart.aspectj.advanced;
 
+import com.smart.NaiveWaiter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.smart.Waiter;
@@ -11,21 +12,22 @@ public class AdvancedTest {
 	public void advance() {
 		String configPath = "com/smart/aspectj/advanced/beans.xml";
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(configPath);
-		Waiter naiveWaiter = (Waiter) ctx.getBean("naiveWaiter");
+		// Waiter naiveWaiter = (Waiter) ctx.getBean("naiveWaiter");
 		Waiter naughtyWaiter = (Waiter) ctx.getBean("naughtyWaiter");
-//		naiveWaiter.greetTo("John");
-//		naiveWaiter.serveTo("John");
+		// naiveWaiter.greetTo("John");
+		// naiveWaiter.serveTo("John");
 //		naughtyWaiter.greetTo("Tom");
 //		naughtyWaiter.serveTo("Tom");
 		
         //--通过joinPoint接口访问连接点上下文信息
 //		naiveWaiter.greetTo("John");
 		
-		//--绑定连接点参数
-//		((NaiveWaiter)naiveWaiter).smile("John",2);
+		// 绑定连接点参数, 需开启proxy-target-class="true"
+		NaiveWaiter naiveWaiter2 = (NaiveWaiter) ctx.getBean("naiveWaiter");
+		naiveWaiter2.smile("John", 2);
 		
 		//--绑定代理对象
-		naiveWaiter.greetTo("John");
+		// naiveWaiter.greetTo("John");
 		
 		//--绑定类注解
 //		((NaiveWaiter)naiveWaiter).greetTo("John");

@@ -3,10 +3,11 @@ package com.smart.aspectj.advanced;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
 @Aspect
 public class TestAspect {
-	//-------------复合运算----------
+    //-------------复合运算----------
 //	@Before("!target(com.smart.NaiveWaiter) "+
 //			"&& execution(* serveTo(..)))")
 //	public void notServeInNaiveWaiter() {
@@ -23,7 +24,7 @@ public class TestAspect {
 //	public void waiterOrSeller(){
 //		System.out.println("--waiterOrSeller() executed!--");
 //	}
-	
+
 //	//------------引用命名切点----------//
 //	@Before("TestNamePointcut.inPkgGreetTo()")
 //	public void pkgGreetTo(){
@@ -37,25 +38,27 @@ public class TestAspect {
 //	}
 //
     //------------访问连接点对象----------//
-	@Around("execution(* greetTo(..)) && target(com.smart.NaiveWaiter)")
-	public void joinPointAccess(ProceedingJoinPoint pjp) throws Throwable{
-		System.out.println("------joinPointAccess-------");
-		System.out.println("args[0]:"+pjp.getArgs()[0]);		
-		System.out.println("signature:"+pjp.getTarget().getClass());
-		pjp.proceed();
-		System.out.println("-------joinPointAccess-------");
-	}
-//	
-//  //------------绑定连接点参数----------//
-//	@Before("target(com.smart.NaiveWaiter) && args(name,num,..)")
-//	public void bindJoinPointParams(int num,String name){
-//	   System.out.println("----bindJoinPointParams()----");
-//	   System.out.println("name:"+name);
-//	   System.out.println("num:"+num);
-//	   System.out.println("----bindJoinPointParams()----");
-//	}
+    // @Around("execution(* greetTo(..)) && target(com.smart.NaiveWaiter)")
+    // public void joinPointAccess(ProceedingJoinPoint pjp) throws Throwable{
+    // 	System.out.println("------joinPointAccess-------");
+    // 	System.out.println("args[0]:"+pjp.getArgs()[0]);
+    // 	System.out.println("signature:"+pjp.getTarget().getClass());
+    // 	pjp.proceed();
+    // 	System.out.println("-------joinPointAccess-------");
+    // }
 
-  //------------绑定代理对象----------//
+    /**
+     * 绑定连接点参数, 并且获取方法的入参
+     */
+    @Before("target(com.smart.NaiveWaiter) && args(name,num,..)")
+    public void bindJoinPointParams(int num, String name) {
+        System.out.println("----bindJoinPointParams()----");
+        System.out.println("name:" + name);
+        System.out.println("num:" + num);
+        System.out.println("----bindJoinPointParams()----");
+    }
+
+    //------------绑定代理对象----------//
 //	@Before("execution(* greetTo(..)) && this(waiter)")
 //	@Before("this(waiter)")
 //	public void bindProxyObj(Waiter waiter){
@@ -63,8 +66,8 @@ public class TestAspect {
 //	   System.out.println(waiter.getClass().getName());
 //	   System.out.println("----bindProxyObj()----");
 //	}
-	
-	  //------------绑定类标注对象----------//
+
+    //------------绑定类标注对象----------//
 //	@Before("@within(m)")
 //	public void bindTypeAnnoObject(Monitorable m){
 //	   System.out.println("----bindTypeAnnoObject()----");
@@ -78,7 +81,7 @@ public class TestAspect {
 //	   System.out.println("returnValue:"+retVal);
 //	   System.out.println("----bingReturnValue()----");
 //	}
-	
+
 //    //------------绑定抛出的异常----------//
 //	@AfterThrowing(value="target(com.smart.SmartSeller)",throwing="iae")
 //	public void bindException(IllegalArgumentException iae){
