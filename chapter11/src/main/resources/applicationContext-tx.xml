@@ -8,17 +8,20 @@
 
     <import resource="classpath:applicationContext-dao.xml"/>
 
-
+    <!-- 事务管理器 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource"/>
 
+    <!-- 使用的切点表达式定义目标方法-->
     <aop:config>
-        <aop:pointcut id="serviceMethod"
-                      expression="execution(* com.smart.service.*Forum.*(..))"/>
-        <aop:advisor pointcut-ref="serviceMethod"
-                     advice-ref="txAdvice"/>
+        <!-- 通过aop定义事务增强切面 -->
+        <aop:pointcut id="serviceMethod" expression="execution(* com.smart.service.*Forum.*(..))"/>
+        <!-- 引用事务增强 -->
+        <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice"/>
     </aop:config>
+
+    <!-- 事务增强 -->
     <tx:advice id="txAdvice">
         <tx:attributes>
             <tx:method name="get*" read-only="false"/>

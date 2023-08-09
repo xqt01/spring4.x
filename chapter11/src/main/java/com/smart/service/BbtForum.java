@@ -13,9 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class BbtForum {
     public ForumDao forumDao;
-
     public TopicDao topicDao;
-
     public PostDao postDao;
 
     public void addTopic(Topic topic) throws Exception {
