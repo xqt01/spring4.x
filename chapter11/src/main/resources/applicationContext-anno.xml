@@ -18,5 +18,6 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource"/>
 
+    <!-- 对标注@Transactional注解的Bean进行加工处理, 以织入事务管理切面. roxy-target-class="true": 创建子类来代理业务类, 反之接口代理 -->
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 </beans>
