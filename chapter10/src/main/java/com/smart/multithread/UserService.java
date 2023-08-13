@@ -57,7 +57,7 @@ public class UserService extends BaseService {
     }
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("com/smart/multithread/applicatonContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("./multithread/applicatonContext.xml");
         UserService service = (UserService) ctx.getBean("userService");
 
         JdbcTemplate jdbcTemplate = (JdbcTemplate) ctx.getBean("jdbcTemplate");

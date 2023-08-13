@@ -1,11 +1,11 @@
 package com.smart.nestcall;
 
+import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-import org.apache.commons.dbcp.BasicDataSource;
 
 /**
  * @author 陈雄华
@@ -19,16 +19,19 @@ public class UserService extends BaseService {
     @Autowired
     private ScoreService scoreService;
 
-    
+    /**
+     * 该方法嵌套调用了本类的其他方法及其他服务类的方法
+     */
     public void logon(String userName) {
         System.out.println("before userService.updateLastLogonTime...");
+        // 本服务类的其他方法
         updateLastLogonTime(userName);
         System.out.println("after userService.updateLastLogonTime...");
-        
+
         System.out.println("before scoreService.addScore...");
+        // 其他服务类的方法
         scoreService.addScore(userName, 20);
         System.out.println("after scoreService.addScore...");
-
     }
 
     public void updateLastLogonTime(String userName) {
@@ -37,7 +40,7 @@ public class UserService extends BaseService {
     }
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("com/smart/nestcall/applicatonContext.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("nestcall/applicatonContext.xml");
         UserService service = (UserService) ctx.getBean("userService");
 
         JdbcTemplate jdbcTemplate = (JdbcTemplate) ctx.getBean("jdbcTemplate");
