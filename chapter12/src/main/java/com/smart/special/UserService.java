@@ -15,26 +15,44 @@ import org.springframework.stereotype.Service;
  */
 @Service("userService")
 public class UserService implements UserServiceInterface{
+    /**
+     * private方法因访问权限的限制, 无法被子类覆盖
+     */
     private void method1() {
         System.out.println("in method1");
     }
 
+    /**
+     * final方法无法被子类覆盖
+     */
     public final void method2() {
         System.out.println("in method2");
     }
 
+    /**
+     * static是类级别的方法, 无法被子类覆盖
+     */
     public static void method3() {
         System.out.println("in method3");
     }
 
+    /**
+     * public方法可以被子类覆盖, 因此可以被动态字节码增强
+     */
     public void method4() {
         System.out.println("in method4");
     }
 
+    /**
+     * 同method2
+     */
     public final void method5() {
         System.out.println("in method5");
     }
 
+    /**
+     * protected方法可以被子类覆盖, 因此可以被动态字节码增强
+     */
     protected void method6(){
         System.out.println("in method6");
     }
