@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,19 +26,24 @@ public class JdbcUserService {
     @Transactional
     public void logon(String userName) {
         try {
+            // 直接从数据源获取连接, 后续程序没有显式释放该连接
             Connection conn = jdbcTemplate.getDataSource().getConnection();
 //            Connection conn = DataSourceUtils.getConnection(jdbcTemplate.getDataSource());
-            
+
             String sql = "UPDATE t_user SET last_logon_time=? WHERE user_name =?";
             jdbcTemplate.update(sql, System.currentTimeMillis(), userName);
-            Thread.sleep(1000);//②模拟程序代码的执行时间
+
+            // 模拟程序代码的执行时间
+            Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 
+    /**
+     * 异步执行行JdbcUserService#logon()
+     */
     public static void asynchrLogon(JdbcUserService userService, String userName) {
         UserServiceRunner runner = new UserServiceRunner(userService, userName);
         runner.start();
@@ -54,8 +58,7 @@ public class JdbcUserService {
     }
 
     public static void reportConn(BasicDataSource basicDataSource) {
-        System.out.println("连接数[active:idle]-[" +
-                       basicDataSource.getNumActive()+":"+basicDataSource.getNumIdle()+"]");
+        System.out.println("连接数[active:idle]-[" + basicDataSource.getNumActive() + ":" + basicDataSource.getNumIdle() + "]");
     }
 
     private static class UserServiceRunner extends Thread {
@@ -79,7 +82,7 @@ public class JdbcUserService {
 
         BasicDataSource basicDataSource = (BasicDataSource) ctx.getBean("dataSource");
         JdbcUserService.reportConn(basicDataSource);
-        
+
         JdbcUserService.asynchrLogon(userService, "tom");
         JdbcUserService.sleep(500);
         JdbcUserService.reportConn(basicDataSource);
