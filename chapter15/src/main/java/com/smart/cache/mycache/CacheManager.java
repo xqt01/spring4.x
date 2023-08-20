@@ -1,12 +1,14 @@
 package com.smart.cache.mycache;
 
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CacheManager<T> {
-    private Map<String,T> cache =
-            new ConcurrentHashMap<String,T>();
+
+    /**
+     * 实现缓存
+     */
+    private Map<String, T> cache = new ConcurrentHashMap<String,T>();
 
     public T getValue(Object key) {
         return cache.get(key);
@@ -25,5 +27,4 @@ public class CacheManager<T> {
     public void evictCache() {
         cache.clear();
     }
-
 }

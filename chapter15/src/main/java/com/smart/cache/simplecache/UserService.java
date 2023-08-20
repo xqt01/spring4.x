@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service(value = "userServiceBean")
 public class UserService {
+
     @Cacheable(cacheNames = "users")// 使用了一个缓存名叫 users
     public User getUserById(String userId) {
         //方法内部实现不考虑缓存逻辑，直接实现业务

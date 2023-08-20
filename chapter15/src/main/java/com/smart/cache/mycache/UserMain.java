@@ -14,5 +14,4 @@ public class UserMain {
         userService.getUserById("001001");// 应该是数据库查询
         userService.getUserById("001001");// 第二次查询，应该直接从缓存返回
     }
-
 }
